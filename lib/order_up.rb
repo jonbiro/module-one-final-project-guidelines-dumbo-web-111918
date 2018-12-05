@@ -1,25 +1,3 @@
-require_relative 'config/environment'
-require 'sinatra/activerecord/rake'
-
-desc 'starts a console'
-task :console do
-  ActiveRecord::Base.logger = Logger.new(STDOUT)
-  Pry.start
-end
-#
-# prompt = TTY::Prompt.new
-# choices = %w(Scorpion Kano Jax)
-#
-# answer = prompt.select("Choose your destiny?", choices)
-#
-# puts "Your answer is #{answer}. Nice."
-#
-##
-###
-####
-###
-##
-#
 tty_user = User.find_by(name: 'Kevin')
 # accept value of tty name
 def user_ingredients(tty_user)
@@ -50,7 +28,7 @@ end
 
 # if [array of recipe_ingredients].sort & [array of user_ingredients].sort == [array of recipe_ingredients].sort
 
-# Recipe.all.each(&:ingredients)
+Recipe.all.each(&:ingredients)
 
 # take ingredients and compare them with the
 
