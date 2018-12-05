@@ -1,6 +1,18 @@
-require_relative '../config/environment'
-require 'tty-prompt'
+require_relative '../lib/cli.rb'
+# require '../config/environment.rb'
 
+welcome
+puts " "
+username
+new_user
 
-
-puts "Hey Class"
+# username = username.downcase
+#
+#
+#
+# if user_exists(username)
+#   menu_screen(username)
+# else
+#   new_user(username)
+#   menu_screen(username)
+# end

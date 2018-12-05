@@ -7,10 +7,11 @@ RecipeIngredient.destroy_all
 Ingredient.destroy_all
 
 #users
-thomspson = User.create(name: "Thompson")
+thompson = User.create(name: "Thompson")
 jonathan = User.create(name: "Jonathan")
 eric = User.create(name: "Eric")
 kevin = User.create(name: "Kevin")
+
 
 #ingredients
 macaroni = Ingredient.create(name: "macaroni")
