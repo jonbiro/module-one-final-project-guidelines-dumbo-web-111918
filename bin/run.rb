@@ -7,6 +7,7 @@ puts "
 user = TTY::Prompt.new.select("Hello! Are you a new user or current user?", %w(New_User Current_User Exit))
   if user == "New_User"
     username
+    new_user
   elsif user == "Current_User"
     returning_user
   elsif user == "Exit"

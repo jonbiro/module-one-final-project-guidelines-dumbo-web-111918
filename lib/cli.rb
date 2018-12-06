@@ -35,7 +35,7 @@ def username
   else
     puts "Hi #{username}"
     $nuser = User.create(name: username)
-    new_user
+    # new_user
   end
 end
 
@@ -76,6 +76,8 @@ def new_user
   recipe_return
   returning_user1
 end
+
+
 
 def recipe_return
   if select_matching_recipes.length < 1
@@ -118,16 +120,16 @@ def returning_user
     when 1
 
       test_list
-      returning_user
+      returning_user1
 
     when 2
       new_user
-      returning_user
+      returning_user1
 
     when 3
       # binding.pry
       recipe_return
-      returning_user
+      returning_user1
     when 4
       puts "Goodbye!!!! Enjoy Your Meal!"
 
@@ -150,16 +152,16 @@ def returning_user1
     when 1
 
       test_list
-      returning_user
+      returning_user1
 
     when 2
       new_user
-      returning_user
+      returning_user1
 
     when 3
       # binding.pry
       recipe_return
-      returning_user
+      returning_user1
     when 4
       puts "Goodbye!!!! Enjoy Your Meal!"
 
