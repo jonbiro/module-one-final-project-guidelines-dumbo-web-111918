@@ -74,6 +74,7 @@ def new_user
     end
   end
   recipe_return
+  returning_user1
 end
 
 def recipe_return
@@ -92,9 +93,9 @@ end
 
 
 
-def name_call
-  $nuser
-end
+# def name_call
+#   $nuser
+# end
 
 def test_list
 
@@ -119,14 +120,48 @@ def returning_user
     when 1
 
       test_list
-
+      returning_user1
 
     when 2
       new_user
+      returning_user1
 
     when 3
       # binding.pry
       recipe_return
+      returning_user1
+    when 4
+      puts "Goodbye!!!!!!!!!!!!"
+
+      exit
+    end
+end
+
+def returning_user1
+
+  $option = TTY::Prompt.new.select( "What would you like to do?") do |menu|
+    menu.choice 'List Your Inventory', 1
+    menu.choice 'Edit Your Ingredients', 2
+    menu.choice 'View Your Recipes', 3
+    menu.choice 'Exit', 4
+    end
+
+
+
+    case $option
+    when 1
+
+      test_list
+      returning_user1
+
+    when 2
+      new_user
+      returning_user1
+
+    when 3
+      # binding.pry
+      recipe_return
+      returning_user1
     when 4
       puts "Goodbye!!!!!!!!!!!!"
 
