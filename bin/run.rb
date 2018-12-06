@@ -1,10 +1,9 @@
-require_relative '../lib/cli.rb'
-# require '../config/environment.rb'
+require_relative '../config/environment.rb'
 
 welcome
-puts " "
 username
 new_user
+
 
 # username = username.downcase
 #

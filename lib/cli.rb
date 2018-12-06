@@ -1,14 +1,18 @@
 require 'tty-prompt'
+require 'pry'
 
+$nuser = nil
 def welcome
   system 'clear'
   puts "What can I cook?"
+  puts " "
 end
 
 def username
   puts "What's your name?"
   username = gets.chomp
   puts "Hi #{username}"
+  $nuser = User.create(name: username)
 end
 
 # def user_exists(username)
@@ -17,21 +21,25 @@ end
 # end
 
 def new_user
+  prompt = TTY::Prompt.new
   # User.create(name: name)
   puts "use SPACEBAR to select the ingredients you have and Press ENTER when done."
-  prompt = TTY::Prompt.new
   ingred = Ingredient.all.map { |ingredient| ingredient.name}
-  options = prompt.multi_select(" ", ingred)
-  if options.empty?
-    puts "Please select at least one ingredient."
-  else
-    Ingredient.create(name: name)
+  options = prompt.multi_select("Pick the ingredients you would like to use:", ingred)
+  # if options.empty?
+  #   puts "Please select at least one ingredient."
+  # else
+
+
     options.each do |ing|
-      User.find_by(name: name)
-      Ingredient.find_by(name: ing)
-    end
+      # User.find_by(name: name)
+
+ UserIngredient.create(user: $nuser, ingredient: Ingredient.find_by(name: ing))
   end
 end
+
+
+
 
 def menu
   prompt = TTY::Prompt.new
