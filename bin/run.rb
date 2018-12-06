@@ -1,5 +1,17 @@
-require_relative '../config/environment'
+require_relative '../config/environment.rb'
+
+welcome
+username
+new_user
 
 
-
-puts "HELLO WORLD"
+# username = username.downcase
+#
+#
+#
+# if user_exists(username)
+#   menu_screen(username)
+# else
+#   new_user(username)
+#   menu_screen(username)
+# end
