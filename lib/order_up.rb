@@ -39,11 +39,11 @@ def compare_overlap(tty_user)
 
 end
 
-def select_matching_recipes(tty_user)
+def select_matching_recipes
 
   recipe_returns = []
 
-  compare_overlap(tty_user).each do |ovrlapArr|
+  compare_overlap($nuser).each do |ovrlapArr|
     # puts "The overlapp array is #{ovrlapArr}"
     Recipe.all.each do |rcpObj|
       # puts "  The recipe getting checked is #{rcpObj}."
@@ -55,5 +55,4 @@ def select_matching_recipes(tty_user)
   end
 
   recipe_returns.uniq
-
 end

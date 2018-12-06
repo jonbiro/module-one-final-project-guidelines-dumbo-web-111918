@@ -6,6 +6,7 @@ def welcome
   system 'clear'
   puts "What can I cook?"
   puts " "
+  puts " "
 end
 
 def username
@@ -13,6 +14,7 @@ def username
   username = gets.chomp
   puts "Hi #{username}"
   $nuser = User.create(name: username)
+  # username = User.create(name: username)
 end
 
 # def user_exists(username)
@@ -32,14 +34,27 @@ def new_user
 
 
     options.each do |ing|
-      # User.find_by(name: name)
-
  UserIngredient.create(user: $nuser, ingredient: Ingredient.find_by(name: ing))
+  end
+end
+
+def recipe_return
+  if select_matching_recipes.length < 1
+    puts "You don't have enough ingredients to make anything. Maybe it's time to go shopping."
+  else
+    puts "Yummy! You can make"
+    puts select_matching_recipes.collect {|x|x}
   end
 end
 
 
 
+
+
+
+def name_call
+  $nuser
+end
 
 def menu
   prompt = TTY::Prompt.new
