@@ -6,10 +6,6 @@ Recipe.destroy_all
 UserIngredient.destroy_all
 RecipeIngredient.destroy_all
 
-User.create(name: 'Thompson')
-User.create(name: 'Jonathan')
-User.create(name: 'Eric')
-kevin = User.create(name: 'Kevin')
 macaroni = Ingredient.create(name: 'macaroni')
 lettuce = Ingredient.create(name: 'lettuce')
 tomato = Ingredient.create(name: 'tomato')
@@ -32,22 +28,6 @@ beefaroni = Recipe.create(name: 'beefaroni')
 bulgogi = Recipe.create(name: 'bulgogi')
 lamb_chops = Recipe.create(name: 'lamb chops')
 
-kevin.ingredients << macaroni
-kevin.ingredients << cheese
-kevin.ingredients << ground_beef
-kevin.ingredients << lettuce
-kevin.ingredients << mint_jelly
-kevin.ingredients << noodles
-
-eric.ingredients << macaroni
-eric.ingredients << lettuce
-eric.ingredients << tomato
-eric.ingredients << ground_beef
-eric.ingredients << noodles
-eric.ingredients << bread
-eric.ingredients << cheese
-eric.ingredients << cut_up_steak
-
 mac_and_cheese.ingredients << cheese
 mac_and_cheese.ingredients << macaroni
 
@@ -68,3 +48,6 @@ beefaroni.ingredients << ground_beef
 
 lamb_chops.ingredients << lamb
 lamb_chops.ingredients << mint_jelly
+
+bulgogi.ingredients << thin_beef
+bulgogi.ingredients << lettuce
