@@ -120,16 +120,16 @@ def returning_user
     when 1
 
       test_list
-      returning_user1
+      # returning_user1
 
     when 2
       new_user
-      returning_user1
+      # returning_user1
 
     when 3
       # binding.pry
       recipe_return
-      returning_user1
+      # returning_user1
     when 4
       puts "Goodbye!!!!!!!!!!!!"
 
@@ -152,18 +152,18 @@ def returning_user1
     when 1
 
       test_list
-      returning_user1
+      returning_user
 
     when 2
       new_user
-      returning_user1
+      returning_user
 
     when 3
       # binding.pry
       recipe_return
-      returning_user1
+      returning_user
     when 4
-      puts "Goodbye!!!!!!!!!!!!"
+      puts "Goodbye!!!! Enjoy Your Meal!"
 
       exit
     end
