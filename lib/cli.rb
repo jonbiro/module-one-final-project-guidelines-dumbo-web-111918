@@ -79,7 +79,7 @@ def new_user
   prompt = TTY::Prompt.new
   # User.create(name: name)
   puts "use SPACEBAR to select the ingredients you have and Press ENTER when done."
-  ingred = Ingredient.all.map { |ingredient| ingredient.name}
+  ingred = Ingredient.all.map { |ingredient| ingredient.name}.sort
   options = prompt.multi_select("Pleast select at least one ingredient to add to your pantry or fridge:", ingred, per_page: 20)
   if options.empty?
     puts "Please select at least one ingredient.
@@ -94,8 +94,6 @@ def new_user
   end
   crud_block
 end
-
-
 
 def recipe_return
   if select_matching_recipes.length < 1
@@ -116,7 +114,7 @@ def list_user_ingredients
   puts "Here is your list of ingredients:"
   $nuser.ingredients.collect do |x|
     puts "#{x.name}"
-  end
+  end.sort
 end
 
 def returning_user
@@ -229,7 +227,7 @@ end
 def edit_existing
   prompt = TTY::Prompt.new
     puts "use SPACEBAR to select the ingredients you wish to add and Press ENTER when done."
-    ingred = Ingredient.all.map { |ingredient| ingredient.name}
+    ingred = Ingredient.all.map { |ingredient| ingredient.name}.sort
     options = prompt.multi_select("Pick the ingredients you would like to use:", ingred, per_page: 20)
     if options.empty?
       system 'clear'
@@ -245,7 +243,7 @@ end
 def remove_existing
   prompt = TTY::Prompt.new
     puts "use SPACEBAR to select the ingredients you wish to add and Press ENTER when done."
-    ingred =   $nuser.ingredients.collect { |ingredient| ingredient.name}
+    ingred =   $nuser.ingredients.collect { |ingredient| ingredient.name}.sort
     options = prompt.multi_select("Pick the ingredients you would like to remove:", ingred, per_page: 20)
     if options.empty?
       remove_choice_failure
@@ -261,5 +259,5 @@ def remove_existing
     puts "Here is your list of ingredients:"
     $nuser.ingredients.collect do |x|
       puts "#{x.name}"
-    end
+    end.sort
 end
