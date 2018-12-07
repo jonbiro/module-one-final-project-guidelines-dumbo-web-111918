@@ -3,7 +3,8 @@ welcome
 
 puts "
 "
-
+new_user_list = "New User"
+current_user_list = "Existing User"
 user = TTY::Prompt.new.select("Hello! Are you a new user or current user?", %w(New_User Current_User Exit))
   if user == "New_User"
     username
