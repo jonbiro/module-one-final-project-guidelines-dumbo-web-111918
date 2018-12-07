@@ -17,11 +17,3 @@ user = TTY::Prompt.new.select("Hello! Are you a new user or current user?", %w(N
     "
     exit
   end
-
-
-
-
-# welcome
-# username
-# new_user
-# recipe_return

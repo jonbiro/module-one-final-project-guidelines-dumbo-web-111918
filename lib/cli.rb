@@ -15,23 +15,23 @@ def username
   puts "What's your name?"
   u_name = gets.chomp
   if u_name == "Stephen"
-    puts "Please don't break our app. Go away, Stephen. Just kidding. But seriously...
+    puts "No Trolls allowed. Goodbye!
 
     "
   elsif u_name == "Steve"
-    puts "Please don't break our app. Go away, Stephen. Just kidding. But seriously...
+    puts "No Trolls allowed. Goodbye!
 
     "
   elsif u_name == "steve"
-    puts "Please don't break our app. Go away, Stephen. Just kidding. But seriously...
+    puts "No Trolls allowed. Goodbye!
 
     "
   elsif u_name == "stephen"
-    puts "Please don't break our app. Go away, Stephen. Just kidding. But seriously...
+    puts "No Trolls allowed. Goodbye!
 
     "
   elsif u_name == "Steven"
-    puts "Please don't break our app. Go away, Stephen. Just kidding. But seriously...
+    puts "No Trolls allowed. Goodbye!
     "
   elsif User.find_by(name: u_name)
     puts "Unfortunately, there already appears to be a user with that name. Try entering something else."
