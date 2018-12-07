@@ -33,26 +33,8 @@ end
 def username
   puts "What's your name?"
   u_name = gets.chomp
-  if u_name == "Stephen"
-    puts "No Trolls allowed. Goodbye!
 
-    "
-  elsif u_name == "Steve"
-    puts "No Trolls allowed. Goodbye!
-
-    "
-  elsif u_name == "steve"
-    puts "No Trolls allowed. Goodbye!
-
-    "
-  elsif u_name == "stephen"
-    puts "No Trolls allowed. Goodbye!
-
-    "
-  elsif u_name == "Steven"
-    puts "No Trolls allowed. Goodbye!
-    "
-  elsif User.find_by(name: u_name)
+  if User.find_by(name: u_name)
     puts "Unfortunately, there already appears to be a user with that name. Try entering something else."
     puts " "
     username
