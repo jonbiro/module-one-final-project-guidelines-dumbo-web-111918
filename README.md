@@ -4,7 +4,7 @@ Congratulations, you've discovered the one recipe app to rule them all. It may n
 
 ## System Requirements
 
-### You'll need a computer with a screen and keyboard. 
+### You'll need a computer with a screen and keyboard.
 
 NEW FEATURE: Now with no mouse required!!!
 
@@ -17,6 +17,9 @@ NEW FEATURE: Now with no mouse required!!!
 	* https://www.ruby-lang.org/en/documentation/installation/
 3. Change your terminal directory to the folder that contains this file!
 4. type in the following:
+	* bundle install
+	* rake db:migrate
+	* rake db:seed
 	* ruby bin/run.rb
 5. Enjoy!
 
@@ -24,3 +27,20 @@ NEW FEATURE: Now with no mouse required!!!
 ### Common Questions:
 - Why aren't there more food options or recipes?
  	* Because we are on the paths to becoming coding gods, but it takes time!
+ 	
+ 	
+ 	
+---
+#### Created by:
+Team Thomps(J)on(athan)
+
+---
+
+### Contributors Guidelines
+* Fork it on github and edit however you'd like. This code is abandonware.
+
+
+#####
+- License-free software
+	* Do whatever you want.
+	
