@@ -5,7 +5,26 @@ $nuser = nil
 # welcome the user to the app
 def welcome
   system 'clear'
-  puts "What can I cook?"
+  puts "██╗    ██╗██╗  ██╗ █████╗ ████████╗    ███████╗ ██████╗  ██████╗ ██████╗
+██║    ██║██║  ██║██╔══██╗╚══██╔══╝    ██╔════╝██╔═══██╗██╔═══██╗██╔══██╗
+██║ █╗ ██║███████║███████║   ██║       █████╗  ██║   ██║██║   ██║██║  ██║
+██║███╗██║██╔══██║██╔══██║   ██║       ██╔══╝  ██║   ██║██║   ██║██║  ██║
+╚███╔███╔╝██║  ██║██║  ██║   ██║       ██║     ╚██████╔╝╚██████╔╝██████╔╝
+ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝       ╚═╝      ╚═════╝  ╚═════╝ ╚═════╝
+
+ ██████╗ █████╗ ███╗   ██╗    ██╗
+██╔════╝██╔══██╗████╗  ██║    ██║
+██║     ███████║██╔██╗ ██║    ██║
+██║     ██╔══██║██║╚██╗██║    ██║
+╚██████╗██║  ██║██║ ╚████║    ██║
+ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝    ╚═╝
+
+███╗   ███╗ █████╗ ██╗  ██╗███████╗██████╗
+████╗ ████║██╔══██╗██║ ██╔╝██╔════╝╚════██╗
+██╔████╔██║███████║█████╔╝ █████╗    ▄███╔╝
+██║╚██╔╝██║██╔══██║██╔═██╗ ██╔══╝    ▀▀══╝
+██║ ╚═╝ ██║██║  ██║██║  ██╗███████╗  ██╗
+╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝  ╚═╝                                 "
   puts " "
   puts " "
 end
@@ -38,7 +57,7 @@ def username
     puts " "
     username
   else
-    puts "Hi, #{u_name}!"
+    puts "\u{1F44B}Hi, #{u_name}!\u{1F44B}"
     $nuser = User.create(name: u_name)
     new_user
   end
@@ -102,7 +121,7 @@ end
 
 def returning_user
   user_name_ask
-  $option = TTY::Prompt.new.select( "What would you like to do?") do |menu|
+  $option = TTY::Prompt.new.select( "What would you like to do?", marker: "\u{1F355}") do |menu|
     menu.choice 'List Your Inventory', 1
     menu.choice 'Edit Your Ingredients', 2
     menu.choice 'View Your Recipes', 3
@@ -127,7 +146,7 @@ end
 
 def crud_block
 
-  $option = TTY::Prompt.new.select( "What would you like to do, #{$nuser.name}?") do |menu|
+  $option = TTY::Prompt.new.select( "What would you like to do, #{$nuser.name}?", marker: "\u{1F355}") do |menu|
     menu.choice 'View Inventory', 1
     menu.choice 'Edit Your Ingredients', 2
     menu.choice 'View Your Recipes', 3
@@ -149,8 +168,43 @@ def crud_block
     end
 end
 
+def add_choice_failure
+  system 'clear'
+  puts "You must choose at least one item."
+  $option = TTY::Prompt.new.select( "", marker: "\u{1F355}") do |menu|
+    menu.choice 'Add Item to Inventory', 1
+    menu.choice 'Return to Inventory Menu', 2
+    end
+
+  case $option
+  when 1
+    edit_existing
+    choose_edit
+  when 2
+    choose_edit
+  end
+end
+
+def remove_choice_failure
+  system 'clear'
+  puts "You must choose at least one item."
+  $option = TTY::Prompt.new.select( "", marker: "\u{1F355}") do |menu|
+    menu.choice 'Remove Item to Inventory', 1
+    menu.choice 'Return to Inventory Menu', 2
+    end
+
+  case $option
+  when 1
+    remove_existing
+    choose_edit
+  when 2
+    choose_edit
+  end
+end
+
+
 def choose_edit
-  $option = TTY::Prompt.new.select( "") do |menu|
+  $option = TTY::Prompt.new.select( "", marker: "\u{1F355}") do |menu|
     menu.choice 'Add to Inventory', 1
     menu.choice 'Remove from Inventory', 2
     menu.choice 'View Inventory', 3
@@ -178,8 +232,8 @@ def edit_existing
     ingred = Ingredient.all.map { |ingredient| ingredient.name}
     options = prompt.multi_select("Pick the ingredients you would like to use:", ingred, per_page: 20)
     if options.empty?
-      puts "Please select at least one ingredient."
-      edit_existing
+      system 'clear'
+      add_choice_failure
     else
       options.each do |ing|
         $nuser.ingredients << Ingredient.find_by(name: ing) #UserIngredient.create(user: $nuser, ingredient: Ingredient.find_by(name: ing))
@@ -194,9 +248,7 @@ def remove_existing
     ingred =   $nuser.ingredients.collect { |ingredient| ingredient.name}
     options = prompt.multi_select("Pick the ingredients you would like to remove:", ingred, per_page: 20)
     if options.empty?
-      puts "You do not have any ingredients. Returning to menu."
-      puts " "
-      crud_block
+      remove_choice_failure
     else
       options.each do |ing|
         $nuser.ingredients.delete(Ingredient.find_by(name: ing)) #UserIngredient.create(user: $nuser, ingredient: Ingredient.find_by(name: ing))
