@@ -38,9 +38,15 @@ def username
     puts " "
     username
   else
+<<<<<<< HEAD
     puts "Hi, #{u_name}!"
     $nuser = User.create(name: u_name)
     new_user
+=======
+    puts "Hi #{username}"
+    $nuser = User.create(name: username)
+    # new_user
+>>>>>>> 77d4f1e28e4009a2312fbc3a2aa84c0477c505c8
   end
 end
 
@@ -76,6 +82,8 @@ def new_user
   crud_block
 end
 
+
+
 def recipe_return
   if select_matching_recipes.length < 1
     system 'clear'
@@ -109,13 +117,28 @@ def returning_user
 
     case $option
     when 1
+<<<<<<< HEAD
       list_user_ingredients
       crud_block
     when 2
       edit_existing
+=======
+
+      test_list
+      returning_user1
+
+    when 2
+      new_user
+      returning_user1
+
+>>>>>>> 77d4f1e28e4009a2312fbc3a2aa84c0477c505c8
     when 3
       recipe_return
+<<<<<<< HEAD
       crud_block
+=======
+      returning_user1
+>>>>>>> 77d4f1e28e4009a2312fbc3a2aa84c0477c505c8
     when 4
       puts "Goodbye!!!! Enjoy Your Meal!"
 
@@ -134,6 +157,7 @@ def crud_block
 
     case $option
     when 1
+<<<<<<< HEAD
       list_user_ingredients
       crud_block
     when 2
@@ -141,6 +165,20 @@ def crud_block
           when 3
       recipe_return
       crud_block
+=======
+
+      test_list
+      returning_user1
+
+    when 2
+      new_user
+      returning_user1
+
+    when 3
+      # binding.pry
+      recipe_return
+      returning_user1
+>>>>>>> 77d4f1e28e4009a2312fbc3a2aa84c0477c505c8
     when 4
       puts "Goodbye!!!! Enjoy Your Meal!"
       exit
