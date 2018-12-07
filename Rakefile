@@ -4,7 +4,6 @@ require 'sinatra/activerecord/rake'
 desc 'starts a console'
 task :console do
   ActiveRecord::Base.logger = Logger.new(STDOUT)
-# thompson = User.find_by(name: "Thompson")
   Pry.start
 
 end
